@@ -1,0 +1,82 @@
+Learn C#
+扩展方法（this参数）
+1.方法必须是公有、静态的，即被public static 所修饰
+2.必须是形参列表中的第一个，由this修饰
+3.必须由一个静态类（一般类名为SomeTypeExtension)来统一收纳对Some Type类型的扩展方法
+4.举例：LINQ（语言集成查询）方法。
+
+数组参数：
+必须是形参列表中的最后一个，由params修饰
+举例：String.Format方法和String.Split方法。
+1.Static method 隶属于类，由Class访问,实例不能访问到。
+2.形参：formal parameter
+3.Convert.ToSingle 转化为float类型
+4. var/Dog/object d = new Wangcai();
+            var result = d is Wangcai; 
+            Console.WriteLine(result);//True
+  Hasiki d = new Wangcai();//错误，Error	CS0029	Cannot implicitly convert type 'Inheritent.Wangcai' to 'Inheritent.Hasiki'	Inheritent	C:\Users\Administrator\Desktop\C#\Inheritent\Inheritent\Program.cs	13
+父类可以 父类 变量 = new 子类（），与子类完全无关的类则不行,除非在Wangcai类内编写隐式类型转换implicit1转换至Hasiki类即可。
+
+5. propfull按两下TAB,将字段Field封装为属性Property。
+class Person
+    {
+        private int myVar;//光标移至myVar按Ctrl+R,再按E,进行重构自动为字段myVar添加MyVar属性封装，也可在Edit菜单修改。
+
+        public int MyVar
+        {
+            get
+            {
+                return myVar;
+            }
+
+            set
+            {
+                myVar = value;
+            }
+        }
+    }
+
+3.class Student
+    {
+      ctor /*敲ctor,Double click tab,自动生成构造器。
+	      public Student()
+	        {
+	                
+	        }
+	        */
+        public int ID= 23;
+        public string Name;
+        /*   public Student(int initID,string initName)
+           {
+               this.ID = initID;
+               this.Name = initName;
+           }
+           */
+
+    }
+class Main
+{
+    struct NT_Header
+    {
+        Namespace.PE.IMAGE_NT_HEADERS32 INTSIGN = 
+            new Namespace.PE.IMAGE_NT_HEADERS32(); //HERE IS THE ERROR!
+    }
+}
+
+
+
+
+You can't assign a default value to a struct field, like you're doing in 
+NT_Header. It's not legal C#. This would compile:
+
+class Main
+{
+struct NT_Header
+    {
+        public Namespace.PE.IMAGE_NT_HEADERS32 INTSIGN;
+    }
+}
+	Property or indexer 'string.this[int]' cannot be assigned to -- it is read only	Property	C:\Users\Somnus\Desktop\C#\Property\Property\Program.cs	23	Active
+	string str = "witcher";
+	str[index]是只读的不能进行赋值；
+
